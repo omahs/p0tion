@@ -104,17 +104,9 @@
             element.innerHTML = html
         }
 
-        fetch(url)
-            .then((response) => response.json())
-            .then((data) => {
-                const ignore = [".nojekyll", "index.html", "CNAME"]
-                const packages = data
-                    .map((c) => c.name)
-                    .filter((name) => !ignore.includes(name))
+        let packages = ["actions", "backend", "phase2cli"]
+        localStorage.setItem("packages", JSON.stringify(packages))
 
-                localStorage.setItem("packages", JSON.stringify(packages))
-
-                insertLinks(packages)
-            })
+        insertLinks(packages)
     </script>
 </html>
