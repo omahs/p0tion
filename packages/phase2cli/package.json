@@ -1,5 +1,5 @@
 {
-    "name": "@p0tion/phase2cli",
+    "name": "@p0tion-maci/phase2cli",
     "type": "module",
     "version": "0.4.0",
     "description": "All-in-one interactive command-line for interfacing with zkSNARK Phase 2 Trusted Setup ceremonies",
