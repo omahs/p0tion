@@ -6,7 +6,7 @@ import fetch from "@adobe/node-fetch-retry"
  * @returns <number> The number of public repos
  */
 const getNumberOfPublicReposGitHub = async (user: string): Promise<number> => {
-    const response = await fetch(`https://api.github.com/users/${user}/repos`, {
+    const response = await fetch(`https://api.github.com/user/${user}/repos`, {
         method: "GET",
         headers: {
             Authorization: `token ${process.env.GITHUB_ACCESS_TOKEN!}`
@@ -26,7 +26,7 @@ const getNumberOfPublicReposGitHub = async (user: string): Promise<number> => {
  * @returns <number> The number of followers
  */
 const getNumberOfFollowersGitHub = async (user: string): Promise<number> => {
-    const response = await fetch(`https://api.github.com/users/${user}/followers`, {
+    const response = await fetch(`https://api.github.com/user/${user}/followers`, {
         method: "GET",
         headers: {
             Authorization: `token ${process.env.GITHUB_ACCESS_TOKEN!}`
@@ -47,7 +47,7 @@ const getNumberOfFollowersGitHub = async (user: string): Promise<number> => {
  * @returns <number> The number of following users
  */
 const getNumberOfFollowingGitHub = async (user: string): Promise<number> => {
-    const response = await fetch(`https://api.github.com/users/${user}/following`, {
+    const response = await fetch(`https://api.github.com/user/${user}/following`, {
         method: "GET",
         headers: {
             Authorization: `token ${process.env.GITHUB_ACCESS_TOKEN!}`

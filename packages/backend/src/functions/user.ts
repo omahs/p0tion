@@ -60,10 +60,11 @@ export const registerAuthUser = functions
             // if provider == github.com let's use our functions to check the user's reputation
             if (user.providerData[0].providerId === "github.com") {
                 const vars = getGitHubVariables()
+
                 // this return true or false
                 try {
                     const res = await githubReputation(
-                        user.displayName!,
+                        user.providerData[0].uid,
                         vars.minimumFollowing,
                         vars.minimumFollowers,
                         vars.minimumPublicRepos
@@ -89,7 +90,7 @@ export const registerAuthUser = functions
                         makeError(
                             "permission-denied",
                             "There was an error while checking the user's Github reputation.",
-                            `There was an error while checking the user's Github reputation. This is likely due to GitHub rate limiting. Please contact the administrator if you think this is a mistake.`
+                            `${error}`
                         )
                     )
                 }
